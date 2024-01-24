@@ -83,8 +83,12 @@ function Login() {
       },
     };
 
+    const formData = new FormData();
+    formData.append("email","admin@jsonapi.com");
+    formData.append("password","secret");
+
     try {
-      const response = await AuthService.login(myData);
+      const response = await AuthService.login(formData);
       authContext.login(response.access_token, response.refresh_token);
     } catch (res) {
       if (res.hasOwnProperty("message")) {
