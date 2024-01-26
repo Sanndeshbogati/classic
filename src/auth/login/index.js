@@ -84,8 +84,8 @@ function Login() {
     };
 
     const formData = new FormData();
-    formData.append("email","admin@jsonapi.com");
-    formData.append("password","secret");
+    formData.append("email",inputs.email);
+    formData.append("password",inputs.password);
 
     try {
       const response = await AuthService.login(formData);

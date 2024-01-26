@@ -92,9 +92,13 @@ function Register() {
         },
       },
     };
-
+    const formData = new FormData;
+    formData.append("name", inputs.name);
+    formData.append("email", inputs.email);
+    formData.append("password", inputs.password);
+    formData.append("password_confirmation", inputs.password);
     try {
-      const response = await AuthService.register(myData);
+      const response = await AuthService.register(formData);
       authContext.login(response.access_token, response.refresh_token);
 
       setInputs({
